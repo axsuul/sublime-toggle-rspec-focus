@@ -1,0 +1,7 @@
+[
+  {
+    "id": "toggle-rspec-focus",
+    "caption": "Toggle RSpec focus on current line",
+    "command": "toggle_rspec_focus"
+  }
+]
