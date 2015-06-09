@@ -1,6 +1,6 @@
 import sublime, sublime_plugin, re
 
-class ToggleRSpecFocus(sublime_plugin.TextCommand):
+class ToggleRspecFocusCommand(sublime_plugin.TextCommand):
     def run(self, edit, surplus=False):
         for region in self.view.sel():
             line = self.view.line(region)
