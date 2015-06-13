@@ -16,7 +16,7 @@ class ToggleRspecFocusCommand(sublime_plugin.TextCommand):
 
             # Otherwise, add it
             else:
-                vanilla_regex = r'(\s*(?:it|describe|context)\s(?:.+?)(?:\"|\'))(\,?.+)do'
+                vanilla_regex = r'(\s*(?:it|describe|context)\s+(?:\"[^\"]+\"|\'[^\']+\'))(\,?.+)do'
                 vanilla_match = re.search(vanilla_regex, line_contents)
 
                 line_with_focus = vanilla_match.group(1) + ", :focus" + vanilla_match.group(2) + "do"
