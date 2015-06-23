@@ -1,0 +1,6 @@
+[
+  {
+    "keys": ["ctrl+shift+o"],
+    "command": "toggle_rspec_focus"
+  }
+]

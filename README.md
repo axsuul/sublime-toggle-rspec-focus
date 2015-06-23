@@ -8,14 +8,15 @@ Often you will find yourself adding `:focus` to test specific examples. This plu
 
 ## Installation
 
-Using [Package Control](https://packagecontrol.io/), look for **Toggle RSpec Focus** to install it.
+Using [Package Control](https://packagecontrol.io/), look for **Toggle RSpec Focus** to install it. You may need to restart Sublime.
 
 ## Usage
 
-This plugin gives you the `toggle_rspec_focus` command that you can utilize in your key bindings. In your **Key Bindings - User** file, you would do something like
+The default keyboard shortcut is `ctrl+shift+o` to focus/unfocus. To change this, you can edit your key bindings in **Preferences > Key Bindings - User** with
 
 ```json
-{ "keys": ["super+shift+o"], "command": "toggle_rspec_focus" }
+{ 
+    "keys": ["ctrl+shift+o"], 
+    "command": "toggle_rspec_focus" 
+}
 ```
-
-Remember to replace `super+shift+o` with whatever key you prefer.
