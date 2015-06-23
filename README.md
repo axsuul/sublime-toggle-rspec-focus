@@ -17,3 +17,5 @@ This plugin gives you the `toggle_rspec_focus` command that you can utilize in y
 ```json
 { "keys": ["super+shift+o"], "command": "toggle_rspec_focus" }
 ```
+
+Remember to replace `super+shift+o` with whatever key you prefer.
