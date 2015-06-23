@@ -14,11 +14,12 @@ class ToggleRspecFocusCommand(sublime_plugin.TextCommand):
                 line_without_focus = re.sub(focus_match.group(1), "", line_contents)
                 self.view.replace(edit, line, line_without_focus)
 
-            # Otherwise, add it
+            # Otherwise, add focus
             else:
-                vanilla_regex = r'(.*(?:it|describe|context)\s+(?:\"[^\"]+\"|\'[^\']+\'|.+))(\,?.+)do'
-                vanilla_match = re.search(vanilla_regex, line_contents)
+                unfocus_regex = r'(.*(?:it|describe|context)\s+(?:\"[^\"]+\"|\'[^\']+\'|.+))(\,?.+)do'
+                unfocus_match = re.search(unfocus_regex, line_contents)
 
-                line_with_focus = vanilla_match.group(1) + ", :focus" + vanilla_match.group(2) + "do"
+                if unfocus_match:
+                    line_with_focus = unfocus_match.group(1) + ", :focus" + unfocus_match.group(2) + "do"
 
-                self.view.replace(edit, line, line_with_focus)
+                    self.view.replace(edit, line, line_with_focus)
