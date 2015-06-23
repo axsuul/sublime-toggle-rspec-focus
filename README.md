@@ -8,7 +8,7 @@ Often you will find yourself adding `:focus` to test specific examples. This plu
 
 ## Installation
 
-Using [Package Control](https://packagecontrol.io/), look for **Toggle RSpec Focus** and install it. It should then automagically work!
+Using [Package Control](https://packagecontrol.io/), look for **Toggle RSpec Focus** to install it.
 
 ## Usage
 
