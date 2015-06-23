@@ -1,0 +1,1 @@
+Thanks for installing Toggle RSpec Focus! Please be sure to read the instructions @ https://github.com/axsuul/sublime-toggle-rpsec-focus
