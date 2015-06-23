@@ -9,3 +9,11 @@ Often you will find yourself adding `:focus` to test specific examples. This plu
 ## Installation
 
 Using [Package Control](https://packagecontrol.io/), look for **Toggle RSpec Focus** and install it. It should then automagically work!
+
+## Usage
+
+This plugin gives you the `toggle_rspec_focus` command that you can utilize in your key bindings. In your **Key Bindings - User** file, you would do something like
+
+```json
+{ "keys": ["super+shift+o"], "command": "toggle_rspec_focus" }
+```
