@@ -6,7 +6,7 @@ class ToggleRspecFocusCommand(sublime_plugin.TextCommand):
             line = self.view.line(region)
             line_contents = self.view.substr(line)
 
-            focus_regex = r'.*(?:it|describe|context)\s+(?:\"[^\"]+\"|\'[^\']+\'|.+)(\,\s\:focus)(.+)do'
+            focus_regex = r'.*(?:it|describe|context|scenario)\s+(?:\"[^\"]+\"|\'[^\']+\'|.+)(\,\s\:focus)(.+)do'
             focus_match = re.search(focus_regex, line_contents)
 
             # If :focus is found, remove it
@@ -16,7 +16,7 @@ class ToggleRspecFocusCommand(sublime_plugin.TextCommand):
 
             # Otherwise, add focus
             else:
-                unfocus_regex = r'(.*(?:it|describe|context)\s+(?:\"[^\"]+\"|\'[^\']+\'|.+))(\,?.+)do'
+                unfocus_regex = r'(.*(?:it|describe|context|scenario)\s+(?:\"[^\"]+\"|\'[^\']+\'|.+))(\,?.+)do'
                 unfocus_match = re.search(unfocus_regex, line_contents)
 
                 if unfocus_match:
