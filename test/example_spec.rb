@@ -1,4 +1,4 @@
-RSpec.describe Coffee do
+RSpec.describe Coffee, :type => :model do
   describe Shop do
     it "is not open" do
     end
@@ -19,5 +19,10 @@ RSpec.describe "doesn't have coffee shops" do
   end
 
   it "doesn't have seating", vcr: { cassette_name: "...", record: :once } do
+  end
+end
+
+RSpec.feature "Widget management", :type => :feature do
+  scenario "User creates a new widget" do
   end
 end
