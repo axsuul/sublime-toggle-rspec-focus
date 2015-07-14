@@ -8,7 +8,7 @@ Often you will find yourself adding `:focus` to test specific examples. This plu
 
 ## Installation
 
-Using [Package Control](https://packagecontrol.io/packages/Toggle%20RSpec%20Focus), look for **Toggle RSpec Focus** to install it. You may need to restart Sublime.
+Use [Package Control](https://packagecontrol.io/packages/Toggle%20RSpec%20Focus) to install. You may need to restart Sublime Text!
 
 ## Usage
 
