@@ -1,12 +1,18 @@
 import sublime, sublime_plugin, re
 
 class ToggleRspecFocusCommand(sublime_plugin.TextCommand):
+    def type_regex_part():
+        pass
+
     def run(self, edit, surplus=False):
+        types = ["it", "describe", "context", "scenario", "feature"]
+        type_regex_part = '.*(?:' + '|'.join(types) + ')\s+'
+
         for region in self.view.sel():
             line = self.view.line(region)
             line_contents = self.view.substr(line)
 
-            focus_regex = r'.*(?:it|describe|context|scenario|feature)\s+(?:\"[^\"]+\"|\'[^\']+\'|.+)(\,\s\:focus)(.+)do'
+            focus_regex = r'.*' + type_regex_part + '(?:\"[^\"]+\"|\'[^\']+\'|.+)(\,\s\:focus)(.+)do'
             focus_match = re.search(focus_regex, line_contents)
 
             # If :focus is found, remove it
@@ -16,10 +22,22 @@ class ToggleRspecFocusCommand(sublime_plugin.TextCommand):
 
             # Otherwise, add focus
             else:
-                unfocus_regex = r'(.*(?:it|describe|context|scenario|feature)\s+(?:\"[^\"]+\"|\'[^\']+\'|.+))(\,?.+)do'
-                unfocus_match = re.search(unfocus_regex, line_contents)
+                # the it "...." part
+                prefix_regex = (
+                    '(?:' + type_regex_part + '\"[^\"]+\"|' +
+                    type_regex_part + '\'[^\']+\'|' +
+                    type_regex_part + '[^\s]+)'
+                )
 
-                if unfocus_match:
-                    line_with_focus = unfocus_match.group(1) + ", :focus" + unfocus_match.group(2) + "do"
+                unfocused_regex = re.compile('(' + prefix_regex + ')(\,.+)?\s+do')
+                unfocused_match = re.search(unfocused_regex, line_contents)
+
+                options = ""
+
+                if unfocused_match.group(2) is not None:
+                    options = unfocused_match.group(2)
+
+                if unfocused_match:
+                    line_with_focus = unfocused_match.group(1) + ", :focus" + options + " do"
 
                     self.view.replace(edit, line, line_with_focus)

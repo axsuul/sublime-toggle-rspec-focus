@@ -9,7 +9,7 @@ RSpec.describe Coffee, :type => :model do
     it 'has single quotes' do
     end
 
-    it  'has  weird stuff'    do
+    it  'has  weird stuff' do
     end
   end
 end
@@ -24,5 +24,11 @@ end
 
 RSpec.feature "Widget management", :type => :feature do
   scenario "User creates a new widget" do
+  end
+
+  scenario "User uses javascript", js: true do
+  end
+
+  scenario "credit card", js: true do
   end
 end
