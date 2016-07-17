@@ -1,3 +1,4 @@
+# Test functionality on these examples
 RSpec.describe Coffee, :type => :model do
   describe Shop do
     it "is not open" do
